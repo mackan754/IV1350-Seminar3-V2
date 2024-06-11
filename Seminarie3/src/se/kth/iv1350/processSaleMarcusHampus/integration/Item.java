@@ -88,16 +88,4 @@ public class Item {
     public void setQuantity(Amount otherQuantity) {
         this.quantity = otherQuantity;
     }
-
-    /**
-     * Returns the item details stored within the item.
-     * @return The item details as a String.
-     */
-    public String generateItemDetails() {
-        String itemDetails = "item name: " + getItemInformation().getItemName()
-                + ", price: " + getItemInformation().getItemPrice()
-                + ", tax amount: " + getItemInformation().getItemTaxAmount()
-                + ", quantity: " + getQuantity();
-        return itemDetails;
-    }
 }

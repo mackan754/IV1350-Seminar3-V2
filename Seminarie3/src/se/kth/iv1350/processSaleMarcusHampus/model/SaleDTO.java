@@ -1,7 +1,6 @@
 package se.kth.iv1350.processSaleMarcusHampus.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import se.kth.iv1350.processSaleMarcusHampus.integration.Item;
@@ -67,34 +66,5 @@ public class SaleDTO {
      */
     public LocalDateTime getSaleTime() {
         return saleTime;
-    }
-
-    /**
-     * Gets the time when sale was initiadted.
-     * 
-     * @return a String representing the sale initiation time.
-     */
-    public String getFormattedSaleTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return saleTime.format(formatter);
-    }
-
-    /**
-     * Generates a string representation of the saleDTO, detailing items, prices,
-     * taxes, and totals.
-     *
-     * @return the string format of the sale details.
-     */
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Item item : items) {
-            sb.append("\n").append(item.getItemInformation().getItemName())
-                    .append("\nprice: ").append(item.getItemInformation().getItemPrice())
-                    .append("\ntax amount: ").append(item.getItemInformation().getItemTaxAmount())
-                    .append("\nquantity: ").append(item.getQuantity() + "\n");
-        }
-        sb.append("\ntotal: ").append(total);
-        sb.append("\ntax: ").append((totalIncludingTax.minus(total)));
-        return sb.toString();
     }
 }

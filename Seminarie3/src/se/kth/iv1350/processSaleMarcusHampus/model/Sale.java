@@ -1,7 +1,6 @@
 package se.kth.iv1350.processSaleMarcusHampus.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import se.kth.iv1350.processSaleMarcusHampus.integration.Item;
 import se.kth.iv1350.processSaleMarcusHampus.util.Amount;
@@ -62,16 +61,6 @@ public class Sale {
      */
     public LocalDateTime getSaleTime() {
         return saleTime;
-    }
-
-    /**
-     * Gets the time when sale was initiadted.
-     * 
-     * @return a String representing the sale initiation time.
-     */
-    public String getFormattedSaleTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return saleTime.format(formatter);
     }
 
     /**

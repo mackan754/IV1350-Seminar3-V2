@@ -45,14 +45,13 @@ public class Controller {
      * 
      * @param itemIdentifier a unique string identifier for the item to be added
      * @param quantity the quantity of the item, encapsulated in an Amount object
-     * @return a string summarizing the added item's details
+     * @return the Item added to the Sale.
      */
-    public String addItem(String itemIdentifier, Amount quantity) {
+    public Item addItem(String itemIdentifier, Amount quantity) {
         Item itemToBeAdded = inventorySystem.fetchItem(itemIdentifier);
         sale.addItem(itemToBeAdded, quantity);
-        String itemDetails = itemToBeAdded.generateItemDetails();
 
-        return itemDetails;
+        return itemToBeAdded;
     }
 
     /**
