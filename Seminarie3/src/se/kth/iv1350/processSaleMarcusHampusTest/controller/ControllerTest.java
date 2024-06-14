@@ -36,7 +36,7 @@ public class ControllerTest {
     @Test
     public void testStartNewSale() {
         controller.startNewSale();
-        assertEquals("0", controller.displayTotal(), "Sale did not start correctly.");
+        assertEquals("0", controller.getTotal(), "Sale did not start correctly.");
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ControllerTest {
         Amount quantity = new Amount(2);
         controller.addItem("32001", quantity);
         String expectedTotal = "24";
-        assertEquals(expectedTotal, controller.displayTotal(),
+        assertEquals(expectedTotal, controller.getTotal(),
                 "Adding and existing inventory item did not update the sale correctly.");
     }
 
@@ -58,7 +58,7 @@ public class ControllerTest {
 
         String expectedTotal = "39";
 
-        assertEquals(expectedTotal, controller.displayTotal(),
+        assertEquals(expectedTotal, controller.getTotal(),
                 "Displayed total does not match the expected total without considering tax.");
     }
 
@@ -71,7 +71,7 @@ public class ControllerTest {
 
         String expectedTotal = "46";
 
-        assertEquals(expectedTotal, controller.displayTotalIncludingTax(),
+        assertEquals(expectedTotal, controller.getTotalIncludingTax(),
                 "Displayed total does not match the expected total.");
     }
 

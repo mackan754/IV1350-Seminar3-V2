@@ -37,28 +37,28 @@ public class View {
         System.out.println("Cashier enter items.\n");
         Item item = contr.addItem("32001", new Amount(2));
         System.out.println(generateItemDetails(item));
-        output = contr.displayTotal();
+        output = contr.getTotal().toString();
         System.out.println("Running total: " + output);
         System.out.println();
         item = contr.addItem("32003", new Amount(4));
         System.out.println(generateItemDetails(item));
-        output = contr.displayTotal();
+        output = contr.getTotal().toString();
         System.out.println("Running total: " + output);
         System.out.println();
         item = contr.addItem("32004", new Amount(3));
         System.out.println(generateItemDetails(item));
-        output = contr.displayTotal();
+        output = contr.getTotal().toString();
         System.out.println("Running total: " + output);
         System.out.println();
         item = contr.addItem("32001", new Amount(2));
         System.out.println(generateItemDetails(item));
-        output = contr.displayTotal();
+        output = contr.getTotal().toString();
         System.out.println("Running total: " + output);
         System.out.println();
-        output = contr.displayTotalIncludingTax();
+        output = contr.getTotalIncludingTax().toString();
         System.out.println("Total including VAT: " + output);
         System.out.println("Cashier enter amount paid");
-        output = contr.enterPayment(new Amount(350));
+        output = contr.enterPayment(new Amount(350)).toString();
         System.out.println("Change to give customer: " + output);
 
     }

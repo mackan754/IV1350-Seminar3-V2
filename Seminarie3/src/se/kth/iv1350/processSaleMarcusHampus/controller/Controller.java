@@ -57,19 +57,19 @@ public class Controller {
     /**
      * Provides the total cost of items in the current sale, excluding tax.
      *
-     * @return the total amount as a string
+     * @return the total amount
      */
-    public String displayTotal() {
-        return sale.getTotal().toString();
+    public Amount getTotal() {
+        return sale.getTotal();
     }
 
     /**
      * Provides the total cost of items in the current sale, including tax.
      *
-     * @return the total amount including tax as a string
+     * @return the total amount including tax
      */
-    public String displayTotalIncludingTax() {
-        return sale.getTotalIncludingTax().toString();
+    public Amount getTotalIncludingTax() {
+        return sale.getTotalIncludingTax();
     }
 
     /**
@@ -77,9 +77,9 @@ public class Controller {
      * and updating the inventory and accounting systems.
      *
      * @param payment the amount paid by the customer
-     * @return string representing the change to be given to the customer
+     * @return the change to be given to the customer
      */
-    public String enterPayment(Amount payment) {
+    public Amount enterPayment(Amount payment) {
         Amount change = sale.completeSale(payment);
 
         SaleDTO saleInformation = new SaleDTO(sale);
@@ -89,6 +89,6 @@ public class Controller {
         inventorySystem.updateInventorySystem(saleInformation);
         accountingSystem.updateAccountingSystem(saleInformation, payment);
 
-        return change.toString();
+        return change;
     }
 }
